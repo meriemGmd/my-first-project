@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20260930135854 extends AbstractMigration
+final class Version20261029184730 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -27,6 +27,7 @@ final class Version20260930135854 extends AbstractMigration
         $this->addSql('CREATE TABLE lecture (id INT AUTO_INCREMENT NOT NULL, user_id_id INT DEFAULT NULL, anime_id_id INT DEFAULT NULL, statut_id_id INT DEFAULT NULL, INDEX IDX_C16779489D86650F (user_id_id), INDEX IDX_C167794813EDFE68 (anime_id_id), INDEX IDX_C16779484DB9F129 (statut_id_id), PRIMARY KEY (id)) DEFAULT CHARACTER SET utf8mb4');
         $this->addSql('CREATE TABLE statut_anime (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(100) NOT NULL, PRIMARY KEY (id)) DEFAULT CHARACTER SET utf8mb4');
         $this->addSql('CREATE TABLE statut_lecture (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(100) NOT NULL, PRIMARY KEY (id)) DEFAULT CHARACTER SET utf8mb4');
+        $this->addSql('CREATE TABLE `user` (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL (email), PRIMARY KEY (id)) DEFAULT CHARACTER SET utf8mb4');
         $this->addSql('ALTER TABLE anime ADD CONSTRAINT FK_1304594264D0228 FOREIGN KEY (statut_anime_id) REFERENCES statut_anime (id)');
         $this->addSql('ALTER TABLE anime_user ADD CONSTRAINT FK_2266041D794BBE89 FOREIGN KEY (anime_id) REFERENCES anime (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE anime_user ADD CONSTRAINT FK_2266041DA76ED395 FOREIGN KEY (user_id) REFERENCES `user` (id) ON DELETE CASCADE');
@@ -55,5 +56,6 @@ final class Version20260930135854 extends AbstractMigration
         $this->addSql('DROP TABLE lecture');
         $this->addSql('DROP TABLE statut_anime');
         $this->addSql('DROP TABLE statut_lecture');
+        $this->addSql('DROP TABLE `user`');
     }
 }

@@ -6,6 +6,13 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306/guemidim</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="meriemgmd@127.0.0.1" uuid="dbd16be1-f984-4146-bb74-a2ec34bbe18f">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://127.0.0.1:3306/meriemgmd</jdbc-url>
       <jdbc-additional-properties>
         <property name="database.introspection.mysql.dbe5060" value="true" />
       </jdbc-additional-properties>
