@@ -5,4 +5,7 @@
 {% block body %}
     <h1>Espace administrateur</h1>
     <p>Bienvenue {{ app.user.email }}</p>
+    <a class="btn btn-sm" href="{{ path('app_anime_index') }}">CRUD Anime</a>
+    <a class="btn btn-sm" href="{{ path('app_genre_index') }}">CRUD Genre</a>
+    <a class="btn btn-sm" href="{{ path('api_genre_index') }}">Json Genre</a>
 {% endblock %}

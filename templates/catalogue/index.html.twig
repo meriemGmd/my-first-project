@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Catalogue</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        {% for anime in animes %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ anime.imageUrl }}" class="card-img-top" alt="{{ anime.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ anime.name }} <small class="text-muted">({{ anime.year }})</small></h5>
+                        <p class="card-text">{{ anime.synopsis }}</p>
+                        {% for genre in anime.genres %}
+                            <span class="badge bg-secondary">{{ genre.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
